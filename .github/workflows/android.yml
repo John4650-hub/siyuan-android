@@ -11,6 +11,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: setup Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '^1.13.1'
+    - name: build kernel.aar
+      run: |
+        git clone git@github.com:siyuan-note/siyuan.git
+        cd siyuan
+        git checkout dev
+       # npm install -g pnpm@9.12.1
+        echo "CGO_ENABLED=1" >> $GITHUB_ENV
+        ls -a
+        cd kernel
+        gomobile bind --tags fts5 -ldflags '-s -w' -v -o kernel.aar -target='android/arm64' -androidapi 23 ./mobile/
+        ls -a
     - name: set up JDK 17
       uses: actions/setup-java@v4
       with:
