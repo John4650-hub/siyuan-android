@@ -21,7 +21,6 @@ jobs:
         sudo mkdir -p /home/runner/work/siyuan-android/siyuan-android/app/
         sudo mv kernel.aar /home/runner/work/siyuan-android/siyuan-android/app/libs/
         sudo mv siyuan-android.jks /home/runner/work/siyuan-android/siyuan-android/app/
-
       env:
         GITHUB_TOKEN: ${{ secrets.TK }}
         USER: john4650-hub
