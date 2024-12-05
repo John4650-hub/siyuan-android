@@ -41,6 +41,8 @@ jobs:
         cd kernel
         gomobile bind --tags fts5 -ldflags '-s -w' -v -o kernel.aar -target='android/arm64' -androidapi 23 ./mobile/
         ls -a
+        gh release create ${{ github.run_number }}.0.0 kernel.aar
+        mv kernel.aar /home/runner/work/siyuan-android/siyuan-android/app/libs/
       env:
         GH_TOKEN: ${{ secrets.TK }}
     - name: set up JDK 17
