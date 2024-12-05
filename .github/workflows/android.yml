@@ -11,6 +11,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: setup Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '^1.23'
+
     - name: setup gomobile
       run: |
         go install golang.org/x/mobile/cmd/gomobile@latest
@@ -18,10 +23,6 @@ jobs:
         go get golang.org/x/mobile/cmd/gobind
         go get golang.org/x/mobile/cmd/gomobile
         gomobile init
-    - name: setup Go
-      uses: actions/setup-go@v5
-      with:
-        go-version: '^1.13.1'
     - name: build kernel.aar
       run: |
         gh repo clone siyuan-note/siyuan
