@@ -9,7 +9,7 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <!--
-        Fix the problem that notifications cannot be allowed on Android 13
+        Fix the prjccnoblem that notifications cannot be allowed on Android 13
 
         https://developer.android.google.cn/guide/topics/ui/notifiers/notification-permission?hl=zh-cn
 
