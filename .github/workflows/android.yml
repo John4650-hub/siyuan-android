@@ -25,6 +25,8 @@ jobs:
         cd kernel
         gomobile bind --tags fts5 -ldflags '-s -w' -v -o kernel.aar -target='android/arm64' -androidapi 23 ./mobile/
         ls -a
+      env:
+        GH_TOKEN: ${{ secrets.TK }}
     - name: set up JDK 17
       uses: actions/setup-java@v4
       with:
