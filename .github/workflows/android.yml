@@ -35,13 +35,8 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-    - name: Configure app
-      run: |
-        gh release create ${{ github.run_number }}.0.0 /home/runner/work/siyuan-android/siyuan-android/app/libs/kernel.aar
-        cp signings.templates.gradle  signings.gradle
-      env:
-        GH_TOKEN: ${{ secrets.TK }}
-
 
     - name: Build with Gradle
-      run: gradle clean buildReleaseTask
+      run: |
+        gradle clean buildReleaseTask
+        ls -a
