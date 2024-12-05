@@ -55,8 +55,8 @@ jobs:
       run: |
         gh release create ${{ github.run_number }}.0.0 /home/runner/work/siyuan-android/siyuan-android/app/libs/kernel.aar
         cp signings.templates.gradle  signings.gradle
-     env:
-       GH_TOKEN: ${{ secrets.TK }}
+      env:
+        GH_TOKEN: ${{ secrets.TK }}
 
 
     - name: Build with Gradle
