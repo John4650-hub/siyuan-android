@@ -1,7 +1,7 @@
 name: Build siyuan-android
 
 on:
-  push:
+  pull_request:
     branch: ["main"]
 
 jobs:
