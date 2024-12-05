@@ -17,7 +17,7 @@ jobs:
         go-version: '^1.13.1'
     - name: build kernel.aar
       run: |
-        sudo git clone git@github.com:siyuan-note/siyuan.git
+        gh repo clone siyuan-note/siyuan
         cd siyuan
         git checkout dev
         echo "CGO_ENABLED=1" >> $GITHUB_ENV
