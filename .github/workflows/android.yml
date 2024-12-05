@@ -16,13 +16,21 @@ jobs:
       with:
         go-version: '^1.23'
 
-    - name: setup gomobile
+    - name: Install Gomobile
       run: |
+        gh repo clone siyuan-note/siyuan
+        cd siyuan
+        git checkout dev
+        echo "CGO_ENABLED=1" >> $GITHUB_ENV
         go install golang.org/x/mobile/cmd/gomobile@latest
         go install golang.org/x/mobile/cmd/gobind@latest
         go get golang.org/x/mobile/cmd/gobind
         go get golang.org/x/mobile/cmd/gomobile
         gomobile init
+      env:
+        GOPROXY: https://proxy.golang.org,direct
+        GH_TOKEN: ${{ secrets.TK }}
+        GO111MODULE: "on"
     - name: build kernel.aar
       run: |
         gh repo clone siyuan-note/siyuan
