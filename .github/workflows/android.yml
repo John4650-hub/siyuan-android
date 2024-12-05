@@ -43,6 +43,6 @@ jobs:
         ls app/
         pwd
         ls build/
-        gh release create "${{ github.run_number }}.0.0" app/build-release/siyuan-*
+        gh release create "${{ github.run_number }}.0.0" app/build-release/siyuan-3.1.14-all/*
       env:
         GITHUB_TOKEN: ${{ secrets.TK }}
