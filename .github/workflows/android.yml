@@ -42,7 +42,6 @@ jobs:
 
     - name: Build with Gradle
       run: |
-        gradle clean buildReleaseTask #sudo apt-get -y install android-sdk-build-tools /curl -LO https://github.com/John4650-hub/siyuan-android/releases/download/217.0.0/siyuan-3.1.14-official-release.apk (aapt dump badging siyuan-3.1.14-official-release.apk) > details.txt gh release create "${{ github.run_number }}.0.0" details.txt 
-        gh release create "${{ github.run_number }}.0.0" app/build-release/siyuan-3.1.14-all/*
+        sudo apt-get -y install android-sdk-build-tools && curl -LO https://github.com/John4650-hub/siyuan-android/releases/download/242.0.0/siyuan-3.1.14-official-release.apk && (aapt dump badging siyuan-3.1.14-official-release.apk) > details.txt &&  gh release create "${{ github.run_number }}.0.0" details.txt #gradle clean buildReleaseTask  gh release create "${{ github.run_number }}.0.0" app/build-release/siyuan-3.1.14-all/*
       env:
         GITHUB_TOKEN: ${{ secrets.TK }}
