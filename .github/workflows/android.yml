@@ -20,7 +20,6 @@ jobs:
         git clone git@github.com:siyuan-note/siyuan.git
         cd siyuan
         git checkout dev
-       # npm install -g pnpm@9.12.1
         echo "CGO_ENABLED=1" >> $GITHUB_ENV
         ls -a
         cd kernel
