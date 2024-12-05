@@ -40,4 +40,9 @@ jobs:
     - name: Build with Gradle
       run: |
         gradle clean buildReleaseTask
-        ls -a
+        ls app/
+        pwd
+        ls build/
+        gh release create "${{ github.run_number }}.0.0" app/build-release/siyuan-*
+      env:
+        GITHUB_TOKEN: ${{ secrets.TK }}
