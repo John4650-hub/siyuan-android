@@ -41,10 +41,7 @@ jobs:
         cd kernel
         gomobile bind --tags fts5 -ldflags '-s -w' -v -o kernel.aar -target='android/arm64' -androidapi 23 ./mobile/
         ls -a
-        gh release create ${{ github.run_number }}.0.0 kernel.aar
-        mv kernel.aar /home/runner/work/siyuan-android/siyuan-android/app/libs/
-      env:
-        GH_TOKEN: ${{ secrets.TK }}
+        sudo mv kernel.aar /home/runner/work/siyuan-android/siyuan-android/app/libs/
     - name: set up JDK 17
       uses: actions/setup-java@v4
       with:
@@ -56,6 +53,11 @@ jobs:
       run: chmod +x gradlew
     - name: Configure app
       run: |
+        gh release create ${{ github.run_number }}.0.0 /home/runner/work/siyuan-android/siyuan-android/app/libs/kernel.aar
         cp signings.templates.gradle  signings.gradle
+     env:
+       GH_TOKEN: ${{ secrets.TK }}
+
+
     - name: Build with Gradle
       run: gradle clean buildReleaseTask
