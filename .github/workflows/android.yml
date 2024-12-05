@@ -22,10 +22,11 @@ jobs:
         cd siyuan
         git checkout dev
         echo "CGO_ENABLED=1" >> $GITHUB_ENV
+        curl -LO https://raw.githubusercontent.com/jerson/rsa-mobile/refs/heads/master/go.mod
         go install golang.org/x/mobile/cmd/gomobile@latest
         go install golang.org/x/mobile/cmd/gobind@latest
-        go get golang.org/x/mobile/cmd/gobind
         go get golang.org/x/mobile/cmd/gomobile
+        go get golang.org/x/mobile/cmd/gobind
         gomobile init
       env:
         GOPROXY: https://proxy.golang.org,direct
