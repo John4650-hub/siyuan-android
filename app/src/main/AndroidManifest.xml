@@ -10,12 +10,13 @@
 
     <!--
         Fix the problem that notifications cannot be allowed on Android 13
-        https://github.com/siyuan-note/siyuan/issues/7960
+
         https://developer.android.google.cn/guide/topics/ui/notifiers/notification-permission?hl=zh-cn
+
     -->
     <uses-permission
         android:name="android.permission.POST_NOTIFICATIONS"
-        android:minSdkVersion="33" />
+        android:minSdkVersion="23" />
 
     <!-- Foreground KeepLiveService Crash on Android 14 https://github.com/siyuan-note/siyuan/issues/9212 -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
@@ -71,7 +72,7 @@
                 <data android:mimeType="application/*" />
             </intent-filter>
             <intent-filter>
-                <action android:name="android.intent.action.SEND" />
+	      <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="audio/*" />
             </intent-filter>
