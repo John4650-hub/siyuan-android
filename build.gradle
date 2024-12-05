@@ -1,4 +1,10 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+android {
+    defaultConfig {
+        minSdkVersion 23  // Minimum API level your app support
+        targetSdkVersion 33 // The API level your app targets
+    }
+}
 buildscript {
     ext {
         siyuanVersionCode = 253
